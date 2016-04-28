@@ -64,15 +64,12 @@ def index(url):
       'environ': pformat(request.environ.items(), indent=2),
     })
 
-  return render_template(
-    'index.html',
-    stored_requests=stored_requests,
-  )
+  return display_calls()
 
 
 @app.route('/', methods=['GET'])
 def display_calls():
   return render_template(
     'index.html',
-    stored_requests=stored_requests.reverse(),
+    stored_requests=stored_requests[::-1],
   )
