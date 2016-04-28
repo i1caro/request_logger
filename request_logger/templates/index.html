@@ -1,0 +1,10 @@
+<!doctype html>
+<title>REQUEST</title>
+
+{% for request in stored_requests %}
+  <div>
+    <pre>{{ request.url }}</pre>
+    <pre>{{ request.data }}</pre>
+  </div>
+  <br/>
+{% endfor %}
