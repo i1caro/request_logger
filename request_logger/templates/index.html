@@ -3,6 +3,7 @@
 
 {% for request in stored_requests %}
   <div>
+    <pre>{{ request.timestamp.isoformat() }}</pre>
     <pre>{{ request.url }}</pre>
     <pre>{{ request.data }}</pre>
   </div>
