@@ -57,7 +57,11 @@ def index(url):
     stored_requests.append({
       'timestamp': datetime.now(),
       'url': '{} {}'.format(request.method, request.url),
-      'data': pformat(vars(request), indent=2),
+      'header': pformat(request.headers.items(), indent=2),
+      'form': pformat(request.form.items(), indent=2),
+      'json': request.json,
+      'data': request.data,
+      'environ': pformat(request.environ.items(), indent=2),
     })
 
   return render_template(
@@ -70,5 +74,5 @@ def index(url):
 def display_calls():
   return render_template(
     'index.html',
-    stored_requests=sorted(stored_requests, key=lambda x: x['timestamp']),
+    stored_requests=stored_requests.reverse(),
   )

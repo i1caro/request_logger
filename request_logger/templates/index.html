@@ -5,7 +5,16 @@
   <div>
     <pre>{{ request.timestamp.isoformat() }}</pre>
     <pre>{{ request.url }}</pre>
-    <pre>{{ request.data }}</pre>
+    Header
+    <pre>{{ request.header }} </pre>
+    Form
+    <pre>{{ request.form }} </pre>
+    Json
+    <pre>{{ request.json }} </pre>
+    Data
+    <pre>{{ request.data }} </pre>
+    Environment
+    <pre>{{ request.environ }} </pre>
   </div>
   <br/>
 {% endfor %}
